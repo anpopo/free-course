@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 public class CarUtils {
 
-
     public static List<String> separateCarNamesWithComma(String carNames) {
         return Arrays.stream(carNames.split(","))
                 .filter(CarUtils::carNameValid)

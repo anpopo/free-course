@@ -14,7 +14,7 @@ public class CarUtilsTest {
     @Test
     void 이름을_받아오면_컴마로_구분한다() {
 
-        String carNames = new StringBuilder(TEST_CAR_NAME1).append(",").append(TEST_CAR_NAME2).append(",").append(TEST_CAR_NAME3).toString();
+        String carNames = TEST_CAR_NAME1 + "," + TEST_CAR_NAME2 + "," + TEST_CAR_NAME3;
 
         List<String> carNameList = CarUtils.separateCarNamesWithComma(carNames);
 
