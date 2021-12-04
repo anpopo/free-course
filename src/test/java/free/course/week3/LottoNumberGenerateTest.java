@@ -25,7 +25,7 @@ public class LottoNumberGenerateTest {
     @RepeatedTest(400)
     @DisplayName("번호 6개 랜덤 생성")
     void generateSixRandomNumber() {
-        List<LottoNumber> lottoNumbers = LottoNumberGenerator.generateSixRandomNumber();
+        List<LottoNumber> lottoNumbers = LottoNumberGenerator.generateSixLottoNumber();
         Assertions.assertThat(lottoNumbers.size()).isEqualTo(6);
         List<Integer> onlyNumbers = lottoNumbers.stream().map(LottoNumber::getLottoNumber).collect(Collectors.toList());
         Assertions.assertThat(onlyNumbers).containsAnyElementsOf(LOTTO_CONTAIN_NUMBERS);
