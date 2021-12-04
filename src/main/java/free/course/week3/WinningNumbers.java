@@ -1,13 +1,15 @@
 package free.course.week3;
 
 import java.util.List;
+import java.util.Map;
 
 public class WinningNumbers {
 
     private List<LottoNumber> winningNumbers;
 
-    private WinningNumbers() {
-    }
+    private int match;
+
+    private WinningNumbers() {}
 
     public static WinningNumbers generateWinningNumbers(String sourceString) {
         WinningNumbers winningNumbers = new WinningNumbers();
@@ -22,5 +24,12 @@ public class WinningNumbers {
 
     public List<LottoNumber> getWinningNumbers() {
         return winningNumbers;
+    }
+
+    public int check(LottoTicket lottoTicket) {
+        lottoTicket.getLottoNumbers().forEach(lottoNumber -> {
+            if(winningNumbers.contains(lottoNumber)) match++;
+        });
+        return match;
     }
 }

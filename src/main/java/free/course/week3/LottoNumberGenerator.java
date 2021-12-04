@@ -6,12 +6,12 @@ public class LottoNumberGenerator {
 
     public static final Random random = new Random();
 
-    public static LottoNumber generateOneRandomNumber() {
-        return new LottoNumber(generateNumber());
-    }
-
     private static int generateNumber() {
         return random.nextInt(45) + 1;
+    }
+
+    public static LottoNumber generateOneRandomNumber() {
+        return new LottoNumber(generateNumber());
     }
 
     public static List<LottoNumber> generateSixLottoNumber() {

@@ -13,6 +13,6 @@
 - [x] 당첨 번호를 담는 WinningNumber 생성
 - [x] 중복되는 메서드 in LottoNumberGenerator 리팩토링
 - [] LottoTicket 클래스와 WinningNumber 클래스의 유사성
-- [] 1개의 로또 티켓에 대하여 일치하는 수
+- [x] 1개의 로또 티켓에 대하여 일치하는 수
 - [] 여러개의 티켓에 대해 일치하는 수 
 - [] 수익률 구하기
