@@ -5,22 +5,14 @@ import java.util.List;
 
 public class LottoTicket {
 
-    private final List<LottoNumber> lottoNumbers;
+    private final List<LottoGame> lottoGames;
 
-    public LottoTicket() {
-        lottoNumbers = new ArrayList<>();
-
-        while(lottoNumbers.size() < 6) {
-            LottoNumber lottoNumber = LottoNumberGenerator.generateLottoNumber();
-            lottoNumberDuplicateChecker(lottoNumber);
-        }
+    public LottoTicket(List<LottoGame> lottoGames) {
+        this.lottoGames = lottoGames;
     }
 
-    private void lottoNumberDuplicateChecker(LottoNumber lottoNumber) {
-        if(!lottoNumbers.contains(lottoNumber)) lottoNumbers.add(lottoNumber);
+    public List<LottoGame> getLottoGames() {
+        return new ArrayList<>(this.lottoGames);
     }
 
-    public List<LottoNumber> getLottoNumbers() {
-        return new ArrayList<>(lottoNumbers);
-    }
 }
