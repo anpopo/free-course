@@ -23,4 +23,13 @@ public class LottoGame {
     public List<LottoNumber> getLottoNumbers() {
         return new ArrayList<>(lottoNumbers);
     }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer("[");
+        this.lottoNumbers.forEach(lottoNumber -> sb.append(lottoNumbers).append(", "));
+        sb.setLength(sb.length() - 2);
+        sb.append("]");
+        return sb.toString();
+    }
 }

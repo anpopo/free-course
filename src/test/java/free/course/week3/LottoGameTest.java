@@ -31,4 +31,10 @@ public class LottoGameTest {
         Assertions.assertThat(lottoGame.getLottoNumbers().size()).isEqualTo(6);
         Assertions.assertThat(lottoGame.getLottoNumbers()).doesNotHaveDuplicates();
     }
+
+    @Test
+    @DisplayName("로또 게임 toString")
+    void lottoGameToString() {
+        Assertions.assertThat(lottoGame.toString()).startsWith("[").endsWith("]");
+    }
 }
