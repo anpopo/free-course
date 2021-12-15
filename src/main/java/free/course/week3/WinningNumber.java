@@ -1,6 +1,6 @@
 package free.course.week3;
 
-public class WinningNumber {
+public class WinningNumber extends LottoBall {
     private final int number;
 
     protected WinningNumber(int number) {

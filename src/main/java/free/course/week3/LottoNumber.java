@@ -2,7 +2,7 @@ package free.course.week3;
 
 import java.util.Random;
 
-public class LottoNumber {
+public class LottoNumber extends LottoBall {
 
     private final int number;
 

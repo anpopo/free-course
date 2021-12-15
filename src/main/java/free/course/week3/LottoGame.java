@@ -1,6 +1,7 @@
 package free.course.week3;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class LottoGame {
@@ -14,6 +15,8 @@ public class LottoGame {
             LottoNumber lottoNumber = LottoNumberGenerator.generateLottoNumber();
             lottoNumberDuplicateChecker(lottoNumber);
         }
+
+        lottoNumbers.sort(Comparator.comparingInt(LottoNumber::getNumber));
     }
 
     private void lottoNumberDuplicateChecker(LottoNumber lottoNumber) {
@@ -27,7 +30,7 @@ public class LottoGame {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("[");
-        this.lottoNumbers.forEach(lottoNumber -> sb.append(lottoNumbers).append(", "));
+        this.lottoNumbers.forEach(lottoNumber -> sb.append(lottoNumber.getNumber()).append(", "));
         sb.setLength(sb.length() - 2);
         sb.append("]");
         return sb.toString();
