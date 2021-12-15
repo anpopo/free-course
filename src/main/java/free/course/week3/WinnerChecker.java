@@ -1,23 +1,19 @@
 package free.course.week3;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.file.AccessDeniedException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WinnerChecker {
 
     private static List<WinningNumber> winningNumbers;
 
+    private Float ratio;
+
     public static WinnerChecker createWinnerChecker(String source) {
         WinnerChecker winnerChecker = new WinnerChecker();
         winnerChecker.setWinningNumber(WinningNumberGenerator.winningNumberGenerate(source));
         return winnerChecker;
-    }
-
-    public static void setWinningNumbers(List<WinningNumber> winningNumbers) {
-        WinnerChecker.winningNumbers = winningNumbers;
     }
 
     private void setWinningNumber(List<WinningNumber> winningNumbers) {
@@ -55,11 +51,26 @@ public class WinnerChecker {
 
     public Map<WinnerRank, Integer> check(List<Integer> matchNumberList) {
         Map<WinnerRank, Integer> rankList = new HashMap<>();
+        int totalGameMoney = matchNumberList.size() * LottoTicketSeller.LOTTO_GAME_COST;
+        int totalPrice = 0;
         for (Integer count : matchNumberList) {
-
             WinnerRank winnerRank = check(count);
+            totalPrice += winnerRank.getPrice();
             rankList.put(winnerRank, rankList.getOrDefault(winnerRank, 0) + 1);
         }
+
+        setRatio(totalPrice, totalGameMoney);
+
         return rankList;
     }
+
+    private void setRatio(int totalPrice, int totalGameMoney) {
+        ratio = (float)totalPrice / totalGameMoney;
+    }
+
+    public Float getRatio() {
+        if(!winningNumbers.isEmpty() && Objects.nonNull(ratio)) return ratio;
+        throw new RuntimeException("접근 불가");
+    }
+
 }

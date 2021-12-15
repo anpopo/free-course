@@ -64,17 +64,18 @@ public class WinningCheckerTest {
         Assertions.assertThat(winnerRankList.size()).isGreaterThanOrEqualTo(0);
     }
 
-//    @RepeatedTest(100)
-//    @DisplayName("수익률 구하기")
-//    void getMarginRatio() {
-//        LottoTicket lottoTicket = LottoTicketSeller.sellLottoTicket(100000);
-//        String source = "1, 12, 13, 24, 25, 36";
-//
-//        WinnerChecker winnerChecker = WinnerChecker.createWinnerChecker(source);
-//        List<Integer> matchNumberList = winnerChecker.matcher(lottoTicket);
-//        Map<WinnerRank, Integer> winnerRankList = winnerChecker.check(matchNumberList);
-//
-//        winnerChecker.getRatio();
-//    }
+    @RepeatedTest(100)
+    @DisplayName("수익률 구하기")
+    void getMarginRatio() {
+        LottoTicket lottoTicket = LottoTicketSeller.sellLottoTicket(100000);
+        String source = "1, 12, 13, 24, 25, 36";
+
+        WinnerChecker winnerChecker = WinnerChecker.createWinnerChecker(source);
+        List<Integer> matchNumberList = winnerChecker.matcher(lottoTicket);
+        Map<WinnerRank, Integer> winnerRankList = winnerChecker.check(matchNumberList);
+
+        Assertions.assertThat(winnerRankList.size()).isGreaterThanOrEqualTo(0);
+        Assertions.assertThat(winnerChecker.getRatio()).isGreaterThanOrEqualTo(0F);
+    }
 
 }
