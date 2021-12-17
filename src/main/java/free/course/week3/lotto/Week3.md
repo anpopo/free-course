@@ -1,0 +1,22 @@
+# 3주차 - 로또 번호 생성 - 최종.....!!
+- [] 구매 금액에 맞는 로또 게임 생성
+- [] 번호 6개 중복 되지 않기
+- [] 번호 1개 랜덤 생성
+- [] LottoNumber equals / hashcode 구현
+- [] 번호 6개를 가진 로또 티켓 생성
+- [] 그냥 로또 티켓 LottoTicket 생성
+- [] LottoTicket 을 LottoGame 으로 바꾸기
+- [] 로또 번호를 가지는 LottoNumber 생성
+- [] LottoGame toString()
+- [] 문자열 1개 숫자 변환 후 WinningNumber 객체로
+- [] 문자열 6개 숫자 변환 후 List<WinningNumber> 객체로
+- [] 문자열에 중복 숫자 있는지 확인
+- [] 당첨 번호를 담는 WinningNumber 생성
+- [] 순위와 등수, 상금을 Enum 으로 만들기
+- [] 1개의 로또 티켓에 대하여 일치하는 수
+- [] 여러개의 티켓에 대해 일치하는 수 
+- [] 수익률 구하기
+- [] lotto number 와 winning number 의 유사성
+- [] 전체적인 리팩토링 필요
+- [] 2등 - 보너스 넘버
+- [] 수동 게임일 때
