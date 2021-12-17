@@ -2,8 +2,20 @@ package free.course.week3.lotto;
 
 import java.util.Objects;
 
-public class Number {
+public abstract class Number {
     private Integer number;
+
+    abstract Number generateNumber();
+
+    Number() {}
+
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    void setNumber(int number) {
+        this.number = number;
+    }
 
     @Override
     public boolean equals(Object o) {
