@@ -62,7 +62,9 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
   - [] 볼
   - [] 낫싱
 - [] 랜덤 3 자리 수 생성
-  - [] 서로 다른 수
+  - [x] 서로 다른 수
+    - Equals and HashCode
+  - [x] 1 ~ 9 랜덤 숫자 생성
 - [] 종료 조건
   - [] 3 스트라이크
 
