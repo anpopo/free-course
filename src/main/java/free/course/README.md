@@ -51,9 +51,10 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
 
 ## 기능 요구사항 정리
 ### 입력
-- [] 3자리 양의 정수
-  - [] 예외 - 숫자 혹은 양의 정수가 아닌 경우
-  - [] 예외 - 3자리 숫자가 아닌 경우
+- [x] 3자리 양의 정수
+  - [x] 사용자의 입력에 대해 1개의 숫자 생성
+  - [x] 예외 - 숫자 혹은 양의 정수가 아닌 경우
+  - [x] 예외 - 3자리 숫자가 아닌 경우
 - [] 1 과 2 로 시작과 종료를 선택 가능
 
 ### 동작
@@ -61,7 +62,7 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
   - [] 스트라이크
   - [] 볼
   - [] 낫싱
-- [] 랜덤 3 자리 수 생성
+- [x] 랜덤 3 자리 수 생성
   - [x] 서로 다른 수
     - Equals and HashCode
   - [x] 1 ~ 9 랜덤 숫자 생성

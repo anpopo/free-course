@@ -1,21 +1,34 @@
 package free.course.baseball.domain;
 
-import java.util.Collection;
+import free.course.baseball.util.ValidationUtil;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class BallContainer {
-    private final Set<Ball> balls;
+    public  final int MAX_BALL_SIZE = 3;
+    private final Set<Ball> balls = new LinkedHashSet<>();
 
     private BallContainer () {
-        balls = new LinkedHashSet<>();
-        while (balls.size() < 3) {
+        while (balls.size() < MAX_BALL_SIZE) {
             balls.add(Ball.of());
+        }
+    }
+
+    private BallContainer(String input) {
+        String[] validatedArr= ValidationUtil.validateClientInputNum(input);
+
+        while (balls.size() < validatedArr.length) {
+            balls.add(Ball.of(validatedArr[balls.size()]));
         }
     }
 
     public static BallContainer of() {
         return new BallContainer();
+    }
+
+    public static BallContainer of(String input) {
+        return new BallContainer(input);
     }
 
     public Set<Ball> getBalls() {

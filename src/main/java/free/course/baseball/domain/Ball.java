@@ -15,6 +15,10 @@ public class Ball {
         return new Ball(RandomUtil.getRandNum());
     }
 
+    public static Ball of(String input) {
+        return new Ball(Integer.parseInt(input));
+    }
+
     public int getNum() {
         return num;
     }
