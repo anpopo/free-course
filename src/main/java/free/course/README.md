@@ -55,7 +55,7 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
   - [x] 사용자의 입력에 대해 1개의 숫자 생성
   - [x] 예외 - 숫자 혹은 양의 정수가 아닌 경우
   - [x] 예외 - 3자리 숫자가 아닌 경우
-- [] 1 과 2 로 시작과 종료를 선택 가능
+- [x] 1 과 2 로 시작과 종료를 선택 가능
 
 ### 동작
 - [] 입력한 숫자에 대한 맞는 갯수 판별
