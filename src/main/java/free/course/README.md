@@ -66,8 +66,8 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
   - [x] 서로 다른 수
     - Equals and HashCode
   - [x] 1 ~ 9 랜덤 숫자 생성
-- [] 종료 조건
-  - [] 3 스트라이크
+- [x] 종료 조건
+  - [x] 3 스트라이크
 
 ### 출력
-- [] 판별한 값에 대해 출력한다.
+- [x] 판별한 값에 대해 출력한다.

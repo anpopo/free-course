@@ -1,6 +1,8 @@
 package free.course.baseball.common;
 
 import free.course.baseball.domain.BallContainer;
+import free.course.baseball.domain.GameResult;
+import free.course.baseball.domain.Result;
 import free.course.baseball.exception.NotValidInputException;
 import free.course.baseball.util.ValidationUtil;
 
@@ -9,17 +11,18 @@ import java.io.*;
 public class Game {
 
     private final Printer printer = new Printer();
+    private final GameResult gameResult = GameResult.of();
 
 
     public void gamePlay() throws IOException {
 
-        BallContainer resultBallContainer = BallContainer.of();
+        BallContainer winningBallContainer = BallContainer.of();
         int matching = 0;
         do {
 
             String inputString = printer.getInputString();
 
-            BallContainer ballContainer = null;
+            BallContainer ballContainer;
 
             try {
                 ballContainer = BallContainer.of(inputString);
@@ -28,10 +31,9 @@ public class Game {
                 continue;
             }
 
+            matching = printer.printResult(gameResult.matching(winningBallContainer, ballContainer));
 
-            matching++;
-
-        } while(matching < 5);
+        } while (matching < 3);
 
         replayGame();
     }

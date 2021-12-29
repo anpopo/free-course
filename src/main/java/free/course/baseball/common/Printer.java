@@ -1,6 +1,9 @@
 package free.course.baseball.common;
 
+import free.course.baseball.domain.Result;
+
 import java.io.*;
+import java.util.EnumMap;
 
 public class Printer {
 
@@ -32,5 +35,21 @@ public class Printer {
     public void notValidMessage() throws IOException {
         bw.write(NOT_VALID_INPUT_MESSAGE);
         bw.flush();
+    }
+
+    public int printResult(EnumMap<Result, Integer> matching) throws IOException{
+        bw.write(createResultString(matching));
+        bw.flush();
+        return matching.getOrDefault(Result.STRIKE, 0);
+    }
+
+    private String createResultString(EnumMap<Result, Integer> matching) {
+        return matching.getOrDefault(Result.STRIKE, 0) +
+                " 스트라이크 / " +
+                matching.getOrDefault(Result.BALL, 0) +
+                " 볼 / " +
+                matching.getOrDefault(Result.NOTHING, 0) +
+                " 낫싱\n";
+
     }
 }
