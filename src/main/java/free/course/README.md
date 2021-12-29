@@ -58,10 +58,10 @@ This project's mission is [MIT](https://github.com/woowacourse/java-baseball-pre
 - [x] 1 과 2 로 시작과 종료를 선택 가능
 
 ### 동작
-- [] 입력한 숫자에 대한 맞는 갯수 판별
-  - [] 스트라이크
-  - [] 볼
-  - [] 낫싱
+- [x] 입력한 숫자에 대한 맞는 갯수 판별
+  - [x] 스트라이크 - 자리와 번호가 일치
+  - [x] 볼 - 자리는 일치 안함, 번호 일치
+  - [x] 낫싱 - 자리, 번호 둘다 일치 안함
 - [x] 랜덤 3 자리 수 생성
   - [x] 서로 다른 수
     - Equals and HashCode

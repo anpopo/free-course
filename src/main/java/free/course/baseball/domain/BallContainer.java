@@ -2,7 +2,9 @@ package free.course.baseball.domain;
 
 import free.course.baseball.util.ValidationUtil;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 public class BallContainer {
@@ -31,7 +33,7 @@ public class BallContainer {
         return new BallContainer(input);
     }
 
-    public Set<Ball> getBalls() {
-        return new LinkedHashSet<>(balls);
+    public List<Ball> getBalls() {
+        return new ArrayList<>(balls);
     }
 }
