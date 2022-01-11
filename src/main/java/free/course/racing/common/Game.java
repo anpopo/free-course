@@ -15,6 +15,7 @@ public class Game {
 
     private Players players;
     private int round;
+    private int max;
 
     private Game() {}
 
@@ -23,6 +24,12 @@ public class Game {
 
         game.getPlayerInfo();
         game.getPlayRound();
+        System.out.println("실행결과");
+        for (int i = 0; i < game.getRound(); i++) {
+            game.players.goOrStop();
+            game.getCustomPrinter().printGoCount(game.getPlayers());
+            System.out.println();
+        }
     }
     private void getPlayerInfo() {
         do {
@@ -56,5 +63,25 @@ public class Game {
         }
 
         if (round < 1) customPrinter.errorWhileInput();
+    }
+
+    public CustomPrinter getCustomPrinter() {
+        return customPrinter;
+    }
+
+    public CustomInput getCustomInput() {
+        return customInput;
+    }
+
+    public Players getPlayers() {
+        return players;
+    }
+
+    public int getRound() {
+        return round;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
     }
 }

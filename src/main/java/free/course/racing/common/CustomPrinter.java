@@ -1,8 +1,7 @@
 package free.course.racing.common;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import free.course.racing.Players;
+import free.course.racing.domain.RacingCar;
 
 public class CustomPrinter {
     public void printPlayerInput() {
@@ -15,5 +14,13 @@ public class CustomPrinter {
 
     public void printRoundInput() {
         System.out.println("시도할 횟수는 몇회인가요?");
+    }
+
+    public void printGoCount(Players players) {
+
+        for (RacingCar car : players.getRacingCars()) {
+            System.out.println(car.getRacingCarName() + " : " + "-".repeat(car.getGoCount()));
+        }
+
     }
 }
