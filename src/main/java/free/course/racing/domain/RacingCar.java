@@ -1,9 +1,10 @@
 package free.course.racing.domain;
 
+import java.util.Objects;
+
 public class RacingCar {
-
-
     private String racingCarName;
+    private int goCount;
 
     private RacingCar () {}
 
@@ -17,5 +18,22 @@ public class RacingCar {
 
     public String getRacingCarName() {
         return racingCarName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RacingCar racingCar = (RacingCar) o;
+        return Objects.equals(racingCarName, racingCar.racingCarName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(racingCarName);
+    }
+
+    public void goOrStop(int std) {
+        if (std > 3) goCount++;
     }
 }

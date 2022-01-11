@@ -3,8 +3,10 @@ package free.course.racing;
 import free.course.racing.domain.RacingCar;
 import free.course.racing.domain.RacingCarFactory;
 import free.course.racing.exception.InvalidNameException;
+import free.course.racing.util.RandomNumberGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -60,4 +62,18 @@ public class RacingCarTest {
 
         Assertions.assertThat(RacingCarFactory.createRacingCars(source5)).extracting("racingCarName").containsExactly(source5);
     }
+
+    @RepeatedTest(200)
+    @DisplayName("한번의 라운드에 1 - 9 까지 숫자를 생산")
+    void checkRandomNumber() {
+        String source = "name,is,very,good";
+        List<RacingCar> racingCars = RacingCarFactory.createRacingCars(source);
+
+        for(int i = 0; i < racingCars.size(); i ++) {
+            Assertions.assertThat(RandomNumberGenerator.getRandomNumber())
+                    .isGreaterThanOrEqualTo(0)
+                    .isLessThanOrEqualTo(9);
+        }
+    }
+
 }
