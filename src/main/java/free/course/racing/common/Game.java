@@ -1,5 +1,6 @@
 package free.course.racing.common;
 
+import free.course.racing.Players;
 import free.course.racing.domain.RacingCar;
 import free.course.racing.domain.RacingCarFactory;
 import free.course.racing.exception.InvalidNameException;
@@ -12,7 +13,7 @@ public class Game {
     private final CustomPrinter customPrinter = new CustomPrinter();
     private final CustomInput customInput = new CustomInput();
 
-    private List<RacingCar> racingCars;
+    private Players players;
     private int round;
 
     private Game() {}
@@ -27,13 +28,13 @@ public class Game {
         do {
             playerInfoTaking();
         }
-        while (Objects.isNull(racingCars));
+        while (Objects.isNull(players.getRacingCars()));
     }
 
     private void playerInfoTaking() {
         customPrinter.printPlayerInput();
         try {
-            racingCars = RacingCarFactory.createRacingCars(customInput.getInput());
+            players = RacingCarFactory.createRacingCars(customInput.getInput());
         } catch (InvalidNameException | IOException e) {
             customPrinter.errorWhileInput();
         }

@@ -1,5 +1,7 @@
 package free.course.racing.domain;
 
+import free.course.racing.util.RandomNumberGenerator;
+
 import java.util.Objects;
 
 public class RacingCar {
@@ -33,7 +35,12 @@ public class RacingCar {
         return Objects.hash(racingCarName);
     }
 
-    public void goOrStop(int std) {
+    public void goOrStop() {
+        int std = RandomNumberGenerator.getRandomNumber();
         if (std > 3) goCount++;
+    }
+
+    public int getGoCount() {
+        return goCount;
     }
 }

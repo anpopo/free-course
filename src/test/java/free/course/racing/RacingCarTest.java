@@ -10,28 +10,29 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCarTest {
     @Test
     @DisplayName("부릉 부릉~~ 레이싱 카를 생성한다.")
     void createRacingCar() {
         String source = "name";
-        List<RacingCar> racingCars = RacingCarFactory.createRacingCars(source);
+        Players players= RacingCarFactory.createRacingCars(source);
 
-        Assertions.assertThat(racingCars).isNotEmpty();
-        Assertions.assertThat(racingCars.size()).isEqualTo(1);
-        Assertions.assertThat(racingCars.get(0).getRacingCarName()).isEqualTo(source);
+        Assertions.assertThat(players.getRacingCars()).isNotEmpty();
+        Assertions.assertThat(players.getRacingCars().size()).isEqualTo(1);
+        Assertions.assertThat(players.getRacingCars().get(0).getRacingCarName()).isEqualTo(source);
     }
 
     @Test
     @DisplayName("부릉 부릉~~ 레이싱 카를 생성한다.")
     void createRacingCars() {
         String source = "name,is,very,good";
-        List<RacingCar> racingCars = RacingCarFactory.createRacingCars(source);
+        Players players = RacingCarFactory.createRacingCars(source);
 
-        Assertions.assertThat(racingCars).isNotEmpty();
-        Assertions.assertThat(racingCars.size()).isEqualTo(4);
-        Assertions.assertThat(racingCars).extracting("racingCarName")
+        Assertions.assertThat(players.getRacingCars()).isNotEmpty();
+        Assertions.assertThat(players.getRacingCars().size()).isEqualTo(4);
+        Assertions.assertThat(players.getRacingCars()).extracting("racingCarName")
                 .containsAnyOf(source.split(","));
     }
 
@@ -60,20 +61,29 @@ public class RacingCarTest {
                 .isInstanceOf(InvalidNameException.class)
                 .hasMessageContaining("Matched");
 
-        Assertions.assertThat(RacingCarFactory.createRacingCars(source5)).extracting("racingCarName").containsExactly(source5);
+        Assertions.assertThat(RacingCarFactory.createRacingCars(source5).getRacingCars()).extracting("racingCarName").containsExactly(source5);
     }
 
     @RepeatedTest(200)
     @DisplayName("한번의 라운드에 1 - 9 까지 숫자를 생산")
     void checkRandomNumber() {
         String source = "name,is,very,good";
-        List<RacingCar> racingCars = RacingCarFactory.createRacingCars(source);
+        Players players = RacingCarFactory.createRacingCars(source);
 
-        for(int i = 0; i < racingCars.size(); i ++) {
+        for(int i = 0; i < players.getRacingCars().size(); i ++) {
             Assertions.assertThat(RandomNumberGenerator.getRandomNumber())
                     .isGreaterThanOrEqualTo(0)
                     .isLessThanOrEqualTo(9);
         }
+    }
+
+    @Test
+    @DisplayName("값에 따라 전진 하거나 멈춘다.")
+    void checkGoOrStop () {
+        String source = "name,is,very,good";
+        Players players = RacingCarFactory.createRacingCars(source);
+        players.goOrStop();
+        Assertions.assertThat(players.getRacingCars().stream().map(RacingCar::getGoCount).reduce(0, Integer::sum)).isGreaterThan(0);
     }
 
 }
